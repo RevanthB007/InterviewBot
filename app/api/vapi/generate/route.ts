@@ -14,6 +14,7 @@ export async function GET(){
 } 
 
 export async function POST(request: Request) {
+    console.log("POST api/vapi/generate");
     const {type,role,level,techstack,amount,userid} = await request.json();
 
     try {
@@ -33,7 +34,9 @@ export async function POST(request: Request) {
        }) 
 
     const interview ={
-        role,type,level,
+        role:role,
+        type:type,
+        level:level,
         techstack:techstack.split(","),
         questions:JSON.parse(questions),
         userId:userid,
